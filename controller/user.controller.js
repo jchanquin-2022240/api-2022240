@@ -7,10 +7,10 @@ const usuariosGet = async (req, res = response) => {
     const query = {estado: true};
 
     const [total, usuarios] = await Promise.all([
-        Usuario.countDocuments(query), 
+        Usuario.countDocuments(query),
         Usuario.find(query)
         .skip(Number(desde))
-        .limite(Number(limite))
+        .limit(Number(limite))
     ]);
 
     res.status(200).json({
@@ -19,16 +19,25 @@ const usuariosGet = async (req, res = response) => {
     });
 }
 
-const putUsuarios = async (req, res = response) => {
-    const { id } = req.params
-    const { _id, password, google,correo, ...resto} = req.body;
+const getUsuarioById = async (req, res) => {
+    const {id} = req.params;
+    const usuario = await Usuario.findOne({_id: id});
+
+    res.status(200).json({
+        usuario
+    });
+}
+
+const putUsuarios = async (req, res = response) =>{
+    const { id } = req.params;
+    const {_id, password, google, correo, ...resto } = req.body;
 
     if(password){
         const salt = bcryptjs.genSaltSync();
-        resto.password = bcryptjs.hashSync(password,salt);
+        resto.password = bcryptjs.hashSync(password, salt);
     }
 
-    const usuario = await Usuario.findByIdAndUpdate(id , resto);
+    const usuario = await Usuario.findByIdAndUpdate(id, resto);
 
     res.status(200).json({
         msg: 'Usuario Actualizado Exitosamente!!!',
@@ -38,19 +47,10 @@ const putUsuarios = async (req, res = response) => {
 
 const usuariosDelete = async (req, res) => {
     const {id} = req.params;
-    const usuario = await Usuario.findByUpdate(id, {estado: false});
+    const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
 
     res.status(200).json({
         msg: 'Usuario eliminado exitosamente!!!',
-        usuario
-    });
-}
-
-const getUsuarioById = async (req,res) => {
-    const {id} = req.params;
-    const usuario = await Usuario.findById({_id : id});
-
-    res.status(200).json({
         usuario
     });
 }
@@ -60,7 +60,7 @@ const usuariosPost = async (req, res) => {
     const usuario = new Usuario({nombre, correo, password, role});
 
     const salt = bcryptjs.genSaltSync();
-    usuario.password = bcryptjs.hashSync(password,salt);
+    usuario.password = bcryptjs.hashSync(password, salt);
 
     await usuario.save();
     res.status(202).json({
