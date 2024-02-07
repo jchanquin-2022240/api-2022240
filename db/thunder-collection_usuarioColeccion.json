@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "usuarioColeccion",
+    "dateExported": "2024-02-07T21:44:20.101Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9ddd5896-872e-4503-b4c2-e41e3a31fb0c",
+            "colId": "07547cdd-d7a5-4a7f-b13a-0cf9a8dbf249",
+            "containerId": "",
+            "name": "get usuarios",
+            "url": "http://localhost:3000/api/usuarios",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-06T21:38:17.610Z",
+            "modified": "2024-02-06T21:39:25.485Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c5fab88d-c2dc-40e9-ba43-85447ef8c351",
+            "colId": "07547cdd-d7a5-4a7f-b13a-0cf9a8dbf249",
+            "containerId": "",
+            "name": "get UsuarioById",
+            "url": "http://localhost:3000/api/usuarios/65c2956412acf1f4f88af8f6",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-06T21:51:33.073Z",
+            "modified": "2024-02-06T23:18:21.748Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fc088dee-6d09-47f1-bdb0-be173d0e6132",
+            "colId": "07547cdd-d7a5-4a7f-b13a-0cf9a8dbf249",
+            "containerId": "",
+            "name": "post usuarios",
+            "url": "http://localhost:3000/api/usuarios",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-06T21:52:27.521Z",
+            "modified": "2024-02-06T23:18:03.373Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"test15\",\n  \"correo\": \"test15@gmail.com\",\n  \"password\": \"123456\",\n  \"role\": \"USER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "54589945-8de0-4784-bc3e-c08d5b0bb71c",
+            "colId": "07547cdd-d7a5-4a7f-b13a-0cf9a8dbf249",
+            "containerId": "",
+            "name": "delete Usuario",
+            "url": "http://localhost:3000/api/usuarios/65c2955d12acf1f4f88af8f2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-06T22:58:46.349Z",
+            "modified": "2024-02-06T23:18:58.898Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "63c466d5-3727-4161-99b9-d567d299f0e4",
+            "colId": "07547cdd-d7a5-4a7f-b13a-0cf9a8dbf249",
+            "containerId": "",
+            "name": "put Usuario",
+            "url": "http://localhost:3000/api/usuarios/65c2956412acf1f4f88af8f6",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-06T22:59:58.114Z",
+            "modified": "2024-02-06T23:20:37.166Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"José Rodrigo\",\n  \"correo\": \"jchanquin-2022240@gmail.com\",\n  \"role\": \"ADMIN_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
